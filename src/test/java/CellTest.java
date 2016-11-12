@@ -28,4 +28,10 @@ public class CellTest {
         Assert.assertEquals(expected,cell.toString());
     }
 
+    @Test
+    public void defaultStringMatches() throws Exception {
+        String expected = ".";
+        Assert.assertEquals(expected,cell.toString());
+    }
+
 }
