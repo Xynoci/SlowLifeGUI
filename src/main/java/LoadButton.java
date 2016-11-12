@@ -1,4 +1,3 @@
-import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.util.*;
@@ -16,7 +15,7 @@ public class LoadButton extends JButton {
     class LoadButtonListener implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
-	    String fileName = "backup.txt";
+	    String fileName = "../../../resources/backup.txt";
 	    ArrayList<String> info = FileAccess.loadFile(fileName);
 	    _m.load(info);
 	}

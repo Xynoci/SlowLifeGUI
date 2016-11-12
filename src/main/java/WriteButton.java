@@ -1,29 +1,30 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
-import java.util.*;
 
-public class SafeSaveButton extends JButton {
+public class WriteButton extends JButton {
 
     private MainPanel _m;
     
-    public SafeSaveButton(MainPanel m) {
-	super("SafeSave");
+    public WriteButton(MainPanel m) {
+	super("Write");
 	_m = m;
-	addActionListener(new SafeSaveButtonListener());
+	addActionListener(new WriteButtonListener());
     }
 
-    class SafeSaveButtonListener implements ActionListener {
+    class WriteButtonListener implements ActionListener {
 
 	public void actionPerformed(ActionEvent e) {
+
 	    String toWrite = _m.toString();
 	    
-	    boolean success = FileAccess.safeSaveFile("backup.txt", "temptemp.txt", toWrite);
+	    boolean success = FileAccess.saveFile("../../../resources/backup.txt", toWrite);
 	    
 	    if (!success) {
 		JOptionPane.showMessageDialog((Component) e.getSource(), "COULD NOT WRITE FILE backup.txt", "BROUGHT TO YOU BY BILL LABOON", JOptionPane.WARNING_MESSAGE);
 	    }
 
+	    
 	}
     }    
     
